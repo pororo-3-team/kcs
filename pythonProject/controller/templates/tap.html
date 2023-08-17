@@ -1,0 +1,115 @@
+<!--&lt;!&ndash;임시 저장 파일입니다.&ndash;&gt;-->
+<!--&lt;!&ndash;index 화면의 또 다른 예시입니다..&ndash;&gt;-->
+
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>상품 추천 프로그램</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <style>&ndash;&gt;-->
+<!--&lt;!&ndash;        .container {&ndash;&gt;-->
+<!--&lt;!&ndash;            display: flex;&ndash;&gt;-->
+<!--&lt;!&ndash;            justify-content: space-between;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;        .left-column {&ndash;&gt;-->
+<!--&lt;!&ndash;            width: 50%;&ndash;&gt;-->
+<!--&lt;!&ndash;            padding: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;        .right-column {&ndash;&gt;-->
+<!--&lt;!&ndash;            width: 45%;&ndash;&gt;-->
+<!--&lt;!&ndash;            padding: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;        .images {&ndash;&gt;-->
+<!--&lt;!&ndash;            display: flex;&ndash;&gt;-->
+<!--&lt;!&ndash;            justify-content: space-between;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;        .main-image {&ndash;&gt;-->
+<!--&lt;!&ndash;            max-width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;            height: auto;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;        .character-images img {&ndash;&gt;-->
+<!--&lt;!&ndash;            max-width: 30%;&ndash;&gt;-->
+<!--&lt;!&ndash;            height: auto;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    </style>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>상품 추천 프로그램</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="left-column">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h2>상품 이미지</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;            {% if images %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <img class="main-image" src="{{ images[0] }}" alt="추천 상품">&ndash;&gt;-->
+<!--&lt;!&ndash;            {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>상품을 선택해주세요.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;            <form action="/" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for="product">상품 유형:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <select name="product" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="" disabled selected>상품 유형 선택</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="식품">식품</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    &lt;!&ndash; 다른 상품 유형도 추가 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                </select><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for="theme_mood">테마(분위기):</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <select name="theme_mood" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="" disabled selected>테마 선택</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="분위기1">분위기1</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="분위기2">분위기2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="분위기3">분위기3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for="theme_personality">테마(성격):</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <select name="theme_personality" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="" disabled selected>테마 선택</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="성격1">성격1</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="성격2">성격2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="성격3">성격3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for="age">나이:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <select name="age" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="" disabled selected>나이 선택</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="10대">10대</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="20대">20대</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="30대">30대</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option value="40대 이상">40대 이상</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                </select><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="submit" value="이미지 업데이트">&ndash;&gt;-->
+<!--&lt;!&ndash;            </form>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="right-column">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h2>추천 상품 이미지</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="images">&ndash;&gt;-->
+<!--&lt;!&ndash;                {% if images %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="character-images">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p>1순위</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <img src="{{ images[1] }}" alt="1순위 캐릭터">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="character-images">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p>2순위</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <img src="{{ images[2] }}" alt="2순위 캐릭터">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="character-images">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <p>3순위</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <img src="{{ images[3] }}" alt="3순위 캐릭터">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p>상품을 선택하면 캐릭터 이미지가 나타납니다.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                {% endif %}&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>{{ tab_name }} 탭</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ tab_name }} 탭</h1>-->
+<!--    <h2>1순위</h2>-->
+<!--    <img src="{{ images[0] }}" alt="1순위 이미지">-->
+<!--    <h2>2순위</h2>-->
+<!--    <img src="{{ images[1] }}" alt="2순위 이미지">-->
+<!--    <h2>3순위</h2>-->
+<!--    <img src="{{ images[2] }}" alt="3순위 이미지">-->
+<!--</body>-->
+<!--</html>-->
