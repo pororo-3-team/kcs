@@ -37,33 +37,33 @@ def file_upload():
             return 'No file uploaded'
 
     return 'Invalid request method'
-
-# 메인 페이지
-# @page_bp.route('/')
-# def page():
-#     try:
-#         with db.engine.connect() as conn:
-#             # 이미지 정보를 데이터베이스에서 가져옴
-#             sql = "SELECT image_name, image_dir FROM images"
-#             data = conn.execute(sql).fetchall()
 #
-#         data_list = []
+# # 메인 페이지
+# # @page_bp.route('/')
+# # def page():
+# #     try:
+# #         with db.engine.connect() as conn:
+# #             # 이미지 정보를 데이터베이스에서 가져옴
+# #             sql = "SELECT image_name, image_dir FROM images"
+# #             data = conn.execute(sql).fetchall()
+# #
+# #         data_list = []
+# #
+# #         for obj in data:
+# #             data_dic = {
+# #                 'name': obj[0],
+# #                 'dir': obj[1]
+# #             }
+# #             data_list.append(data_dic)
+# #
+# #         return render_template('index.html', data_list=data_list)
+# #     except Exception as e:
+# #         return 'An error occurred while fetching data from the database'
 #
-#         for obj in data:
-#             data_dic = {
-#                 'name': obj[0],
-#                 'dir': obj[1]
-#             }
-#             data_list.append(data_dic)
 #
-#         return render_template('index.html', data_list=data_list)
-#     except Exception as e:
-#         return 'An error occurred while fetching data from the database'
-
-
-# 다른 방법
-# 해당 코드는 파일 업로드 테스트하기 위한 임시 코드임
-# 업로드된 파일을 저장할 경로 설정
+# # 다른 방법
+# # 해당 코드는 파일 업로드 테스트하기 위한 임시 코드임
+# # 업로드된 파일을 저장할 경로 설정
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -86,4 +86,62 @@ if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
 
 
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+
+
+# 아래 코드는 8월 22일 기준 이미지 파일을 합치는 코드임. 아직까진 미사용임
+# from flask import Flask, render_template, request, send_from_directory
+# from PIL import Image
+# import os
+#
+# app = Flask(__name__)
+#
+# UPLOAD_FOLDER = 'uploads'
+# COMBINED_FOLDER = 'combined'
+# if not os.path.exists(UPLOAD_FOLDER):
+#     os.makedirs(UPLOAD_FOLDER)
+# if not os.path.exists(COMBINED_FOLDER):
+#     os.makedirs(COMBINED_FOLDER)
+
+# @app.route('/', methods=['GET', 'POST'])
+# def upload_image():
+#     if request.method == 'POST':
+#         image1 = request.files['file1']
+#         image2 = request.files['file2']
+#
+#         if not image1 or not image2:
+#             return 'Please upload both images', 400
+#
+#         image1_path = os.path.join(UPLOAD_FOLDER, image1.filename)
+#         image2_path = os.path.join(UPLOAD_FOLDER, image2.filename)
+#         combined_path = os.path.join(COMBINED_FOLDER, 'combined_' + image1.filename)
+#
+#         image1.save(image1_path)
+#         image2.save(image2_path)
+#
+#         # Combine images
+#         with Image.open(image1_path) as img1, Image.open(image2_path) as img2:
+#             # Example of combining side by side. Modify as needed.
+#             dst = Image.new('RGB', (img1.width + img2.width, img1.height))
+#             dst.paste(img1, (0, 0))
+#             dst.paste(img2, (img1.width, 0))
+#             dst.save(combined_path)
+#
+#         return send_from_directory(COMBINED_FOLDER, 'combined_' + image1.filename)
+#
+#     return render_template('upload.html')
+#
+#
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
